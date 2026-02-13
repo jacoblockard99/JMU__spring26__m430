@@ -13,17 +13,149 @@
 
 \begin{document}
 
-\title{MATH 430: HW \{num\}}
+\title{MATH 430: HW 3}
 \author{Jacob Lockard}
-\date{\{date\}}
+\date{10 February 2026}
 
 \maketitle
 
-\section*{Exercise \{prob\}}
+\section*{Exercise 3.38}
 
 \begin{quote}
     \itshape
-    \{description\}
+    There is an isomorphism of $U_7$ with $\mathbb{Z}_7$ in which
+    $\zeta = e^{i(2\pi/7)} \leftrightarrow 4$.
+    Find the element in $\mathbb{Z}_7$ to which $\zeta^m$ must
+    correspond for $m=0$,$2$,$3$,$4$,$5$, and $6$.
 \end{quote}
+
+We have:
+\begin{align*}
+    \zeta^0 = 1 \; &\leftrightarrow \; 0 \\
+    \zeta^1 = \zeta \; &\leftrightarrow \; 4 \\
+    \zeta^2 = \zeta \cdot \zeta \; &\leftrightarrow \; 4 +_7 4 = 1 \\
+    \zeta^3 = \zeta^2 \cdot \zeta \; &\leftrightarrow \; 1 +_7 4 = 5 \\
+    \zeta^4 = \zeta^3 \cdot \zeta \; &\leftrightarrow \; 5 +_7 4 = 2 \\
+    \zeta^5 = \zeta^4 \cdot \zeta \; &\leftrightarrow \; 2 +_7 4 = 6 \\
+    \zeta^6 = \zeta^5 \cdot \zeta \; &\leftrightarrow \; 6 +_7 4 = 3 \,.
+\end{align*}
+
+\section*{Exercise 3.42}
+
+\begin{quote}
+    \itshape
+    \begin{enumerate}[label=\alph*.]
+        \item Derive a formula for $\cos 3\theta$ in terms of $\sin \theta$
+        and $\cos \theta$ using Euler's formula.
+        \item Derive the formula $\cos 3\theta = 4\cos^3 \theta - 3 \cos \theta$
+        from part (a) and the identity $\sin^2 \theta + \cos^2 \theta = 1$.
+    \end{enumerate}
+\end{quote}
+\textbf{(a)} By Euler's formula,
+\begin{align*}
+    e^{i\cdot 3\theta} &= \bigl(e^{i\theta}\bigr)^3 \\
+     \cos 3\theta + i\sin 3\theta &= (\cos \theta + i \sin \theta)^3 \\
+    &= (\cos \theta + i \sin \theta)(\cos^2 \theta + i \cdot 2 \sin \theta \cos \theta - \sin^2 \theta) \,.
+\end{align*}
+We have:
+\begin{align*}
+    \cos 3\theta &= \cos^3 \theta - \sin^2 \theta \cos \theta - 2 \sin^2 \theta \cos \theta \\
+    \cos 3\theta &= \cos^3 \theta - 3 \sin^2 \theta \cos \theta \,.
+\end{align*}
+
+\textbf{(b)} We have:
+\begin{align*}
+    \cos 3\theta &= \cos^3 \theta - 3 \sin^2 \theta \cos \theta \\
+    &= \cos \theta(\cos^2 \theta - 3 \sin^2 \theta) \\
+\end{align*}
+???
+
+\section*{Exercise 4.5}
+
+We have:
+\begin{align*}
+    \sigma^{-1}\tau\sigma = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        2 & 6 & 1 & 5 & 4 & 3
+    \end{pmatrix} \,.
+\end{align*}
+
+\section*{Exercise 4.8}
+
+\begin{align*}
+    \sigma^{100} = \sigma^{96+4} = \bigl(\sigma^6\bigr)^{16}\sigma^4
+    = e^{16} \sigma^4 &= \sigma^4 \\
+    &= \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        6 & 5 & 2 & 1 & 3 & 4
+    \end{pmatrix} \,.
+\end{align*}
+
+\section*{Exercise 4.10}
+
+We have:
+\begin{align*}
+    \sigma &= (1, 3, 4, 5, 6, 2) \\
+    \tau &= (1, 2, 4, 3)(5, 6) \\
+    \mu &= (1, 5)(3, 4) \,.
+\end{align*}
+
+\section*{Exercise 4.13a}
+
+We have:
+\begin{align*}
+    \mu\rho^2\mu\rho^8 = 
+    \mu^2\rho^{12-2}\rho^8
+    = \rho^{10+8}
+    = \rho^{6} \,.
+\end{align*}
+
+\section*{Exercise 4.32}
+
+Let $n \geq 3$. We will show that
+the only element $\sigma$
+of $S_n$ satisfying
+$\sigma\gamma = \gamma\sigma$
+for all $\gamma \in S_n$
+is $\sigma = \iota$.
+
+Let $\sigma \in S_n$
+with $\sigma \neq \iota$. Then there's some $x \in \{1, 2, \dots, n\}$ such that
+$\sigma(x) = y \neq x$.
+Let $\gamma \in S_n$ be some bijection that
+sends $x \mapsto x$, $y \mapsto z$, and $z \mapsto y$, where
+$z \neq x$ and $z \neq y$. $\gamma$ exists, since $n \geq 3$.
+Then,
+\begin{align*}
+    \sigma\gamma(x) = \sigma(x) = y \neq z = \gamma(y) = \gamma\sigma(x) \,.
+\end{align*}
+We've shown that for any $\sigma \neq \iota$ there's a $\gamma \in S_n$ such that
+$\sigma\gamma \neq \gamma\sigma$.
+We conclude that $\iota$ is the only element of $S_n$ satisfying
+$\sigma\gamma = \gamma\sigma$ for all $\gamma \in S_n$.
+
+\qedsymbol
+
+\section*{Exercise 5.59}
+
+Let $S$ by any subset of a group $G$.
+We will show that
+\begin{align*}
+    H_S = \{s \in G \;\vert\; xs = sx \text{ for all } s \in S \}
+\end{align*}
+is a subgroup of $G$. Let $a, b \in H_S$, and let $s \in S$.
+Then we have:
+\begin{align*}
+    (ab)s = a(bs) = a(sb) = (as)b = (sa)b = s(ab) \,.
+\end{align*}
+So $ab \in H_S$. Let $e$ be the identity in $G$, and let $s \in S$.
+Then we have:
+\begin{align*}
+    es = s = se \,,
+\end{align*}
+by the definition of the identity. So $e \in H_S$. Since $H_S \subseteq G$,
+we conclude that $H_S$ is a subgroup of $G$.
+
+\qedsymbol
 
 \end{document}
