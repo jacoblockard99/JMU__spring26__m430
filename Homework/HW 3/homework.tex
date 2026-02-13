@@ -112,19 +112,18 @@ We have:
 
 \section*{Exercise 4.32}
 
-Let $n \geq 3$. We will show that
+Let $n \geq 3$, and denote $\Sigma = \{1, 2, \dots, n\}$. We will show that
 the only element $\sigma$
 of $S_n$ satisfying
 $\sigma\gamma = \gamma\sigma$
 for all $\gamma \in S_n$
 is $\sigma = \iota$.
-
 Let $\sigma \in S_n$
-with $\sigma \neq \iota$. Then there's some $x \in \{1, 2, \dots, n\}$ such that
+with $\sigma \neq \iota$. Then there's some $x \in \Sigma$ such that
 $\sigma(x) = y \neq x$.
-Let $\gamma \in S_n$ be some bijection that
-sends $x \mapsto x$, $y \mapsto z$, and $z \mapsto y$, where
-$z \neq x$ and $z \neq y$. $\gamma$ exists, since $n \geq 3$.
+Let $\gamma : \Sigma \to \Sigma$
+be such that $\gamma(y) =z$, $\gamma(z) = y$, and $\gamma(v) = v$
+for all other $v \in \Sigma$. $\gamma$ is clearly bijective, so $\gamma \in S_n$.
 Then,
 \begin{align*}
     \sigma\gamma(x) = \sigma(x) = y \neq z = \gamma(y) = \gamma\sigma(x) \,.
