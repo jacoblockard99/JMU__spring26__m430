@@ -13,17 +13,38 @@
 
 \begin{document}
 
-\title{MATH 430: HW \{num\}}
+\title{MATH 430: HW 4}
 \author{Jacob Lockard}
-\date{\{date\}}
+\date{19 February 2026}
 
 \maketitle
 
-\section*{Exercise \{prob\}}
+\section*{Exercise 2.44}
 
-\begin{quote}
-    \itshape
-    \{description\}
-\end{quote}
+Let $f : G_1 \to G_2$ be a group isomorphism from the group
+$\langle G_1, *_1 \rangle$ to the group $\langle G_2, *_2 \rangle$.
+We'll show that $f^{-1} : G_2 \to G_1$ is also a group isomorphism.
+
+Let $a, b \in G_1$ with $f^{-1}(a) = f^{-1}(b)$.
+Then, $f\bigl( f^{-1}(a) \bigr) = f\bigl( f^{-1}(b) \bigr)$ and
+$a = b$,
+so $f^{-1}$ is injective. Let $y \in G_2$. Then $f^{-1}\bigl( f(y) \bigr) = y$, so
+$f^{-1}$ is surjective.
+
+Let $x, y \in G_2$. Since $f$ is surjective, there exist $a, b \in {G_1}$
+such that $f(a) = x$ and $f(b) = y$. We note that $f^{-1}(x) = a$ and
+$f^{-1}(y) = b$.
+Since $f$ is a group isomorphism,
+we know
+\begin{align*}
+    f(a *_1 b) &= f(a) *_2 f(b) \\
+    f^{-1}\bigl( f(a *_1 b) \bigr) &= f^{-1}\bigl( f(a) *_2 f(b) \bigr) \\
+    a *_1 b &= f^{-1}\bigl( f(a) *_2 f(b) \bigr) \\
+    f^{-1}(x) *_1 f^{-1}(y) &= f^{-1}\bigl( x *_2 y \bigr) \,.
+\end{align*}
+So $f^{-1}$ is a group homomorphism. Since $f^{-1}$ is a bijective homomorphism,
+we conclude that it is an isomorphism.
+
+\qedsymbol
 
 \end{document}
