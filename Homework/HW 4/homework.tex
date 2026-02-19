@@ -47,4 +47,23 @@ we conclude that it is an isomorphism.
 
 \qedsymbol
 
+\section*{Exercise 3.39}
+
+We will show that there does not exist an isomorphism of $U_6$ with
+$\mathbb{Z}_6$ in which $\zeta = e^{i(\pi/3)}$ corresponds to $4$.
+Let $f : U_6 \to \mathbb{Z}_6$ be a group isomorphism with
+$f(\zeta) = 4$. Then we have:
+\begin{align*}
+    f(\zeta^3) &= 3 f(\zeta) = 3(4) = 2 +_6 4 = 0 \,; \\
+    f(\zeta^6) &= 6 f(\zeta) = 6(4) = 3(4) +_6 3(4) = 0 +_6 0 = 0 \,.
+\end{align*}
+However,
+\begin{align*}
+    \zeta^3 = \bigl(e^{i(\pi/3)}\bigr)^3 = e^{i \pi} = -1
+    \neq 1 = e^{i(2\pi)} = \bigl(e^{i(\pi/3)}\bigr)^6 = \zeta^6 \,.
+\end{align*}
+So $f$ is not injective, and we conclude that $f$ does not exist.
+
+\qedsymbol
+
 \end{document}
