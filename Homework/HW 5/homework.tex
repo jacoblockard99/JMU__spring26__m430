@@ -188,25 +188,14 @@ We first note that
 \end{align*}
 so $m \leq n$, since $m$ is the smallest positive integer such that $\phi(g)^m = e_H$.
 The discrete division theorem ensures we can write
-\begin{align*}
-    n = qm + r & \,,
-\end{align*}
+$n = qm + r$
 for some unique $q, r \in \mathbb{Z}$ with $0 \leq r < m$.
-If $q \leq 0$, then since $m > 0$,
-\begin{align*}
-    qm &\leq 0 \\
-    n = qm + r &\leq r < m \leq n \,.
-\end{align*}
-Since $n = n$, we conclude that $q > 0$.
 We have:
 \begin{gather*}
-    g^n = g^{qm + r} = g^{qm} g^r \\
-    g^{n-qm} = g^r \,.
+    e_G = g^n = g^{qm + r} = g^{qm} g^r = (g^m)^q g^r = g^r \,.
 \end{gather*}
-Since $q$ and $m$ are positive, we know $n-qm < n$, so
-$g^{n-qm} \neq e_G$, since $n$ is the smallest positive integer
-such that $g^n = e_G$.
-We conclude $r \neq 0$.
+Since $n$ is the smallest positive integer such that $g^n = e_G$,
+and since $r < m \leq n$, we conclude $r = 0$.
 So we can write $n = qm$, and we've shown that $m|n$.
 \qedsymbol
 
