@@ -17,7 +17,7 @@
 
 \title{MATH 430: HW 5}
 \author{Jacob Lockard}
-\date{4 March 2026}
+\date{5 March 2026}
 
 \maketitle
 
@@ -27,6 +27,9 @@
     and $\phi : G \to H$ is a homomorphism. Write $e_G$ and $e_H$
     for the identity elements in $G$ and $H$, respectively.
 \end{quote}
+
+We omit the operators $*_G$ and $*_H$ throughout this text, using the typical
+multiplication and exponent notation for groups.
 
 \section*{Exercise 1}
 
@@ -38,21 +41,26 @@ We've proven previously that a group's only idempotent is its identity.
 So $\phi(e_G)$ is the identity in $H$.
 \qedsymbol
 
+\section*{Lemma 1}
+
+Let $\phi(x) \in \im(\phi)$. We show that $\phi(x)^{-1} = \phi(x^{-1})$:
+\begin{align*}
+    \phi(x)\phi(x^{-1}) = \phi(xx^{-1}) = \phi(e_G) = e_H =
+    \phi(e_G) = \phi(x^{-1}x) = \phi(x^{-1})\phi(x) \,,
+\end{align*}
+by the previous exercise and uniqueness of group inverses.
+\qedsymbol
+
 \section*{Exercise 2}
 
 We'll show that $\im(\phi) \leq H$. By definition, $\im(\phi) \subseteq H$.
-The previous exercise ensures $e_H \in \im(\phi)$. So we need only show closure.
-Let $\phi(a), \phi(b) \in \im(\phi)$. We first observe that
-the (unique) inverse of $\phi(b)$ is $\phi(b^{-1})$ by the previous problem:
-\begin{align*}
-    \phi(b)\phi(b^{-1}) = \phi(bb^{-1}) = \phi(e_G) = e_H =
-    \phi(e_G) = \phi(b^{-1}b) = \phi(b^{-1})\phi(b) \,.
-\end{align*}
-So we have:
+Exercise 1 ensures $e_H \in \im(\phi)$.
+Let $\phi(a), \phi(b) \in \im(\phi)$.
+Then by the previous lemma,
 \begin{align*}
     \phi(a) \phi(b)^{-1} = \phi(a) \phi(b^{-1}) = \phi(ab^{-1}) \in \im(\phi) \,.
 \end{align*}
-We conclude that $\im(\phi) \leq H$.
+So $\im(\phi) \leq H$.
 \qedsymbol
 
 \section*{Exercise 3}
@@ -69,42 +77,63 @@ and $H = D_3$, where $\iota$ is the identity in $D_3$; and let $\phi$
 map $\iota$ to $\iota$. Then $\phi$ is clearly a homomorphism and clearly $\iota\iota = \iota\iota$,
 but we know $D_3$ is not abelian.
 
+\section*{Exercise 4}
+
+Suppose $\phi$ is an isomorphism.
+We'll show that $G$ is abelian if and only if
+$H$ is abelian.
+
+If $G$ is abelian,
+then the previous exercise ensures
+$\im(\phi)$ is abelian.
+But since $\phi$ is surjective, its image is $H$, so $H$ is abelian.
+
+If $G$ is not abelian, then there's an $a, b \in G$ such that
+$ab \neq ba$. Since $\phi$ is injective, we have
+$\phi(a)\phi(b) = \phi(ab) \neq \phi(ba) = \phi(b)\phi(a)$.
+So $H$ is not abelian.
+\qedsymbol
+
 \section*{Exercise 5}
 
 We'll show that $\ker(\phi) \leq G$. By definition, $\ker(\phi) \subseteq G$.
-Exercise 1 ensures $e_G \in \ker(\phi)$. So we only need to show closure.
+Exercise 1 ensures $e_G \in \ker(\phi)$.
 Let $a, b \in \ker(\phi)$.
-Then,
+Then by Lemma 1,
 \begin{align*}
     \phi(ab^{-1}) = \phi(a) \phi(b^{-1}) = \phi(a) \phi(b)^{-1} = e_H e_H^{-1} = e_H \,,
 \end{align*}
-where our discussion in Exercise 2 shows that $\phi(b)^{-1} = \phi(b^{-1})$.
 So $ab^{-1} \in \ker(\phi)$. We conclude that $\ker(\phi) \leq G$.
 \qedsymbol
 
 \section*{Exercise 6}
 
 We'll show that $\ker(\phi)$
-is normal in $G$. We've already shown $\ker(\phi) \leq G$.
+is a normal subgroup of $G$. We've already shown $\ker(\phi) \leq G$.
 Let $g \in G$ and $n \in \ker(\phi)$. Then,
 \begin{align*}
     \phi(gng^{-1}) &= \phi(g) \phi(n) \phi(g^{-1}) \\
     &= \phi(g) \phi(g^{-1}) \\
     &= \phi(g g^{-1}) \\
-    &= \phi(e_G) = e_H \,.
+    &= \phi(e_G) = e_H \,,
 \end{align*}
-So $gng^{-1} \in \ker(\phi)$. \qedsymbol
+where the last line is justified by Exercise 1.
+So $gng^{-1} \in \ker(\phi)$.
+We conclude that $\ker(\phi)$ is a normal subgroup of $G$. \qedsymbol
 
 \section*{Exercise 7}
 
-We'll show that $G \times H$ is a group under the operation
+We leave it to the reader to show that
+that $G \times H$ is a group under the operation
 defined by
 \begin{align*}
     (g,h) (g', h') := (gg', hh') \,,
 \end{align*}
-for all $(g, h), (g', h') \in G \times H$.
-
-[TODO]
+for all $(g, h), (g', h') \in G \times H$. We simply note that
+the identity in $G \times H$ is $(e_G, e_H)$, and that for any $(g, h) \in G \times H$,
+\begin{align*}
+    (g, h)^{-1} = (g^{-1}, h^{-1}) \,.
+\end{align*}
 
 \section*{Exercise 8}
 
@@ -129,7 +158,6 @@ Let $(g, e_H), (g', e_H) \in G \times \{e_H\}$. Then,
     &= (g(g')^{-1}, e_H e_H) \in G \times \{e_H\} \,.
 \end{align*}
 So $G \times \{e_H\} \leq G \times H$.
-
 Now let $(g, e_H) \in G \times \{e_H\}$ and $(g', h') \in G \times H$.
 Then,
 \begin{align*}
