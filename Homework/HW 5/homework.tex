@@ -182,11 +182,6 @@ We'll show $\phi(g)$ has finite order. We have, for some $n \in \mathbb{Z}^+$,
 
 Let $g \in G$ have order $n$.
 We'll show that $m|n$, where $m$ is the order of $\phi(g)$.
-We first note that
-\begin{align*}
-    \phi(g)^n = \phi(g^n) = \phi(e_G) = e_H \,,
-\end{align*}
-so $m \leq n$, since $m$ is the smallest positive integer such that $\phi(g)^m = e_H$.
 The discrete division theorem ensures we can write
 $n = qm + r$
 for some unique $q, r \in \mathbb{Z}$ with $0 \leq r < m$.
@@ -194,7 +189,7 @@ We have:
 \begin{gather*}
     e_H = \phi(e_G) = \phi(g^n) = \phi(g)^n = \phi(g)^{qm+r} = \phi(g)^{qm} \phi(g)^r = (\phi(g)^m)^q \phi(g)^r = \phi(g)^r
 \end{gather*}
-Since $m$ is the smallest positive integer such that $\phi(g)^n = e_H$,
+Since $m$ is the smallest positive integer such that $\phi(g)^m = e_H$,
 and since $r < m$, we conclude $r = 0$.
 So we can write $n = qm$, and we've shown that $m|n$.
 \qedsymbol
