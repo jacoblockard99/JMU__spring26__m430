@@ -192,10 +192,10 @@ $n = qm + r$
 for some unique $q, r \in \mathbb{Z}$ with $0 \leq r < m$.
 We have:
 \begin{gather*}
-    e_G = g^n = g^{qm + r} = g^{qm} g^r = (g^m)^q g^r = g^r \,.
+    e_H = \phi(e_G) = \phi(g^n) = \phi(g)^n = \phi(g)^{qm+r} = \phi(g)^{qm} \phi(g)^r = (\phi(g)^m)^q \phi(g)^r = \phi(g)^r
 \end{gather*}
-Since $n$ is the smallest positive integer such that $g^n = e_G$,
-and since $r < m \leq n$, we conclude $r = 0$.
+Since $m$ is the smallest positive integer such that $\phi(g)^n = e_H$,
+and since $r < m$, we conclude $r = 0$.
 So we can write $n = qm$, and we've shown that $m|n$.
 \qedsymbol
 
