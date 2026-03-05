@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[parfill]{parskip}
+\usepackage{esvect}
+\usepackage[thinc]{esdiff}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{xfrac}
+\usepackage{enumitem}
+
+\DeclareMathOperator{\im}{im}
+
+\begin{document}
+
+\title{MATH 430: HW 5}
+\author{Jacob Lockard}
+\date{4 March 2026}
+
+\maketitle
+
+\begin{quote}
+    \itshape
+    For the exercises below, assume $(G, *_G)$ and $(H, *_H)$ are groups,
+    and $\phi : G \to H$ is a homomorphism. Write $e_G$ and $e_H$
+    for the identity elements in $G$ and $H$, respectively.
+\end{quote}
+
+\section*{Exercise 1}
+
+We'll show that $\phi(e_G) = e_H$. We have:
+\begin{align*}
+    \phi(e_G) = \phi(e_G e_G) = \phi(e_G) \phi(e_G) = \phi(e_G)^2 \,.
+\end{align*}
+We've proven previously that a group's only idempotent is its identity.
+So $\phi(e_G)$ is the identity in $H$.
+\qedsymbol
+
+\section*{Exercise 2}
+
+We'll show that $\im(\phi) \leq H$. By definition, $\im(\phi) \subseteq H$.
+The previous exercise ensures $e_H \in \im(\phi)$. So we need only show closure.
+Let $\phi(a), \phi(b) \in \im(\phi)$. We first observe that
+the (unique) inverse of $\phi(b)$ is $\phi(b^{-1})$ by the previous problem:
+\begin{align*}
+    \phi(b)\phi(b^{-1}) = \phi(bb^{-1}) = \phi(e_G) = e_H =
+    \phi(e_G) = \phi(b^{-1}b) = \phi(b^{-1})\phi(b) \,.
+\end{align*}
+So we have:
+\begin{align*}
+    \phi(a) \phi(b)^{-1} = \phi(a) \phi(b^{-1}) = \phi(ab^{-1}) \in \im(\phi) \,.
+\end{align*}
+We conclude that $\im(\phi) \leq H$.
+\qedsymbol
+
+\section*{Exercise 3}
+
+Suppose $G$ is abelian. We'll show that $\im(\phi)$ is also abelian.
+Let $\phi(a), \phi(b) \in \im(\phi)$. Then,
+\begin{align*}
+    \phi(a)\phi(b) = \phi(ab) = \phi(ba) = \phi(b)\phi(a) \,.
+\end{align*}
+\qedsymbol
+
+On the other hand, we note that $H$ need not be abelian. For example, let $G = \{\iota\} \subseteq D_3$
+and $H = D_3$, where $\iota$ is the identity in $D_3$; and let $\phi$
+map $\iota$ to $\iota$. Then $\phi$ is clearly a homomorphism and clearly $\iota\iota = \iota\iota$,
+but we know $D_3$ is not abelian.
+
+\section*{Exercise 5}
+
+We'll show that $\ker(\phi) \leq G$. By definition, $\ker(\phi) \subseteq G$.
+Exercise 1 ensures $e_G \in \ker(\phi)$. So we only need to show closure.
+Let $a, b \in \ker(\phi)$.
+Then,
+\begin{align*}
+    \phi(ab^{-1}) = \phi(a) \phi(b^{-1}) = \phi(a) \phi(b)^{-1} = e_H e_H^{-1} = e_H \,,
+\end{align*}
+where our discussion in Exercise 2 shows that $\phi(b)^{-1} = \phi(b^{-1})$.
+So $ab^{-1} \in \ker(\phi)$. We conclude that $\ker(\phi) \leq G$.
+\qedsymbol
+
+\section*{Exercise 6}
+
+We'll show that $\ker(\phi)$
+is normal in $G$. We've already shown $\ker(\phi) \leq G$.
+Let $g \in G$ and $n \in \ker(\phi)$. Then,
+\begin{align*}
+    \phi(gng^{-1}) &= \phi(g) \phi(n) \phi(g^{-1}) \\
+    &= \phi(g) \phi(g^{-1}) \\
+    &= \phi(g g^{-1}) \\
+    &= \phi(e_G) = e_H \,.
+\end{align*}
+So $gng^{-1} \in \ker(\phi)$. \qedsymbol
+
+\section*{Exercise 7}
+
+We'll show that $G \times H$ is a group under the operation
+defined by
+\begin{align*}
+    (g,h) (g', h') := (gg', hh') \,,
+\end{align*}
+for all $(g, h), (g', h') \in G \times H$.
+
+[TODO]
+
+\section*{Exercise 8}
+
+Let $\pi_G : G \times H \to G$
+be the projection $(g,h) \mapsto g$.
+We'll show that $\pi_G$ is a group
+homomorphism. Let $(g, h), (g', h') \in G \times H$. We have:
+\begin{align*}
+    \pi_G \bigl( (g, h) (g', h') \bigr) = \pi_G (gg', hh') = gg'
+    = \pi_G(g, h) \pi_G(g', h') \,.
+\end{align*}
+
+\section*{Exercise 9}
+
+We'll show that $G \times \{e_H\}$
+is a normal subgroup of $G \times H$.
+Clearly, $G \times \{e_H\} \subseteq G \times H$ and
+$(e_G, e_H) \in G \times \{e_H\}$.
+Let $(g, e_H), (g', e_H) \in G \times \{e_H\}$. Then,
+\begin{align*}
+    (g, e_H) (g', e_H)^{-1} &= (g, e_H) ((g')^{-1}, e_H) \\
+    &= (g(g')^{-1}, e_H e_H) \in G \times \{e_H\} \,.
+\end{align*}
+So $G \times \{e_H\} \leq G \times H$.
+
+Now let $(g, e_H) \in G \times \{e_H\}$ and $(g', h') \in G \times H$.
+Then,
+\begin{align*}
+    (g', h') (g, e_H) (g', h')^{-1} &= (g', h')(g, e_H)((g')^{-1}, (h')^{-1}) \\
+    &= \bigl(g'g(g')^{-1}, h'e_H(h')^{-1}\bigr) \\
+    &= \bigl(g'g(g')^{-1}, e_H\bigr) \in G \times \{e_H\} \,.
+\end{align*}
+So $G \times \{e_H\}$ is a normal subgroup of $G \times H$.
+\qedsymbol
+
+\section*{Exercise 10}
+
+Suppose $g \in G$ has finite order.
+We'll show $\phi(g)$ has finite order. We have, for some $n \in \mathbb{Z}^+$,
+\begin{align*}
+    g^n  &= e_G \\
+    \phi(g)^n = \phi(g^n) &= \phi(e_G) = e_H \,.
+\end{align*}
+\qedsymbol
+
+\section*{Challenge}
+
+Let $g \in G$ have order $n$.
+We'll show that $m|n$, where $m$ is the order of $\phi(g)$.
+
+We first note that
+\begin{align*}
+    \phi(g)^n = \phi(g^n) = \phi(e_G) = e_H \,,
+\end{align*}
+so $m \leq n$, since $m$ is the smallest positive integer such that $\phi(g)^m = e_H$.
+The discrete division theorem ensures we can write
+\begin{align*}
+    n = qm + r & \,,
+\end{align*}
+for some unique $q, r \in \mathbb{Z}$ with $0 \leq r < m$.
+If $q \leq 0$, then since $m > 0$,
+\begin{align*}
+    qm &\leq 0 \\
+    qm + r &\leq r \\
+    n = qm + r &\leq r < m \leq n \,.
+\end{align*}
+Since $n = n$, we conclude that $q > 0$.
+Now we have:
+\begin{gather*}
+    g^n = g^{qm + r} = g^{qm} g^r \\
+    g^{n-qm} = g^r \,.
+\end{gather*}
+Since $q$ and $m$ are positive, we know $n-qm < n$, so
+$g^{n-qm} \neq e_G$, since $n$ is the smallest positive integer
+such that $g^n = e_G$.
+We conclude $r \neq 0$.
+So we can write $n = qm$, and we've shown that $m|n$.
+\qedsymbol
+
+\end{document}
