@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[parfill]{parskip}
+\usepackage{esvect}
+\usepackage[thinc]{esdiff}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{xfrac}
+\usepackage{enumitem}
+
+\renewcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\begin{document}
+
+\title{MATH 430: HW 6}
+\author{Jacob Lockard}
+\date{10 March 2026}
+
+\maketitle
+
+\section*{Exercise 5.60}
+
+\begin{quote}
+    \itshape
+    Let $H$ be a subgroup of a group $G$. For $a, b \in G$,
+    let $a \sim b$ if and only if $ab^{-1} \in H$.
+    Show that $\sim$ is an equivalence relation on $G$.
+\end{quote}
+
+Let $a \in G$. Then $aa^{-1} = e \in H$, so $a \sim a$, and
+$\sim$ is reflexive.
+Now let $a, b \in G$ with $a \sim b$. Then,
+\begin{align*}
+    ba^{-1} = \bigl(ab^{-1}\bigr)^{-1} \in H \,,
+\end{align*}
+since $ab^{-1} \in H$ and $H$ is a subgroup.
+So $b \sim a$, and $\sim$ is symmetric.
+Finally, let $a, b, c \in G$ with $a \sim b$ and $b \sim c$. Then,
+\begin{align*}
+    ac^{-1} = aec^{-1} = a b^{-1} b c^{-1} \in H \,,
+\end{align*}
+since $ab^{-1} \in H$, $bc^{-1} \in H$, and $H$ is a subgroup.
+So $a \sim c$, and $\sim$ is transitive.
+\qedsymbol
+
+\section*{Exercise 8.8}
+
+\begin{quote}
+    \itshape
+    Determine whether the given map is a group homomorphism:
+
+    ...
+
+    Let $F$ be the additive group of all continuous functions mapping
+    $\mathbb{R}$ to $\mathbb{R}$. Let $\phi : F \to \mathbb{R}$ be
+    defined by $\phi(g) = \int_0^1 g(x) \diff x$.
+\end{quote}
+
+We'll show that $\phi$ is a homomorphism. Let $f, g \in F$.
+We have:
+\begin{align*}
+    \phi(f + g) &= \int_0^1 (f+g)(x) \diff x \\
+    &= \int_0^1 f(x) \diff x + \int_0^1 g(x) \diff x \\
+    &= \phi(f) + \phi(g) \,,
+\end{align*}
+by linearity of the integration operator. \qedsymbol
+
+\section*{Exercise 8.11}
+
+\begin{quote}
+    \itshape
+    Compute the kernel for the given homomorphism $\phi$:
+
+    ...
+
+    $\phi : \mathbb{Z} \to \mathbb{Z}_8$ such that $\phi(1) = 6$
+\end{quote}
+
+We compute:
+\begin{gather*}
+    \phi(0) = 0 \,; \\
+    \phi(1) = 6 \,; \\
+    \phi(2) = 4 \,; \\
+    \phi(3) = 2 \,; \\
+    \phi(4) = 0 \,; \\
+    ...
+\end{gather*}
+
+Apparently, $\ker(\phi) = \bigl\{ 4n \;\vert\; n \in \mathbb{N}_0 \bigr\}$.
+
+\section*{Exercise 8.12}
+
+\begin{quote}
+    \itshape
+    Compute the kernel for the given homomorphism $\phi$:
+
+    ...
+
+    $\phi : \mathbb{Z} \to \mathbb{Z}$ such that $\phi(1) = 12$
+\end{quote}
+
+Let $n \in \mathbb{Z}$. Then,
+\begin{align*}
+    \phi(n) = \phi(1 \cdot n) = n \phi(1) = 12n \,.
+\end{align*}
+So $\phi$ is clearly injective, and we conclude $\ker(\phi) = \{ e \}$.
+
+\section*{Exercise 8.16}
+
+\begin{quote}
+    \itshape
+    Compute the kernel for the given homomorphism $\phi$:
+
+    ...
+
+    Let $D$ be the additive group of all differentiable functions mapping
+    $\mathbb{R}$ to $\mathbb{R}$ and $F$ the additive group of all functions
+    from $\mathbb{R}$ to $\mathbb{R}$. $\phi : D \to f$ is given by
+    $\phi(f) = f'$, the derivative of $f$.
+\end{quote}
+
+We know from calculus that if $f'$ is the identity function, then
+$f$ has the form
+\begin{align*}
+    f(x) = x + c
+\end{align*}
+for some $c \in \mathbb{R}$. So $\ker(\phi)$ is the set of all such functions.
+
+\section*{Exercise 10.2}
+
+\begin{quote}
+    \itshape
+    Find all cosets of the subgroup $4\mathbb{Z}$ of $2\mathbb{Z}$.
+\end{quote}
+
+We have:
+\begin{align*}
+    0 + 4\mathbb{Z} &= 4 \mathbb{Z} \,; \\
+    2 + 4\mathbb{Z} &= \bigl\{ 2 + 4n \;\vert\; n \in \mathbb{Z} \bigr\} \,; \\
+    4 + 4\mathbb{Z} &= \bigl\{ 4 + 4n \;\vert\; n \in \mathbb{Z} \bigr\} = 4\mathbb{Z} \,; \\
+    \dots
+\end{align*}
+
+\section*{Exercise 10.30}
+
+\begin{quote}
+    \itshape
+    Let $H$ be a subgroup of a group $G$ such that $g^{-1}hg \in H$ for all
+    $g \in G$ and all $h \in H$. Show that every left coset $gH$ is
+    the same as the right coset $Hg$.
+\end{quote}
+
+Let $g \in G$. Let $gh \in gH$. Then we can write
+\begin{align*}
+    gh = (ghg^{-1}) g \,,
+\end{align*}
+where $ghg^{-1} = \bigl(g^{-1}\bigr)^{-1} h g^{-1} \in H$, since $g^{-1} \in G$.
+So $gh \in Hg$. Similarly, if $hg \in Hg$, we can write
+\begin{align*}
+    hg = g(g^{-1}hg) \,,
+\end{align*}
+where $g^{-1} h g \in H$, so $hg \in gH$. We conclude $gH = Hg$. \qedsymbol
+
+\section*{Exercise 10.33}
+
+\begin{quote}
+    \itshape
+    Let $H$ be a subgroup of a group $G$ and let $a,b \in G$. Prove
+    the statement or give a counterexample:
+
+    ...
+
+    If $Ha = Hb$, then $b \in Ha$.
+\end{quote}
+
+Assume $Ha = Hb$. Since $b = eb$, we have $b \in Hb = Ha$. \qedsymbol
+
+\end{document}
